@@ -1,0 +1,102 @@
+#include "Header.h"
+
+int count();
+
+int main() {
+	int score_I_E = 0;
+	int score_S_N = 0;
+	int score_T_F = 0;
+	int score_J_P = 0;
+	char MBTI[4];
+
+
+	printf("질문1:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_I_E += count();
+	printf("질문2:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_I_E += count();
+	printf("질문3:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_I_E += count();
+	printf("질문4:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_I_E += count();
+	if (score_I_E >= 0) {
+		MBTI[0] = 'E';
+	}
+	else {
+		MBTI[0] = 'I';
+	}
+
+	printf("질문5:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_S_N += count();
+	printf("질문6:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_S_N += count();
+	printf("질문7:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_S_N += count();
+	printf("질문8:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_S_N += count();
+	if (score_S_N >= 0) {
+		MBTI[1] = 'S';
+	}
+	else {
+		MBTI[1] = 'N';
+	}
+
+	printf("질문9:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_T_F += count();
+	printf("질문10:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_T_F += count();
+	printf("질문11:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_T_F += count();
+	printf("질문12:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_T_F += count();
+	if (score_T_F >= 0) {
+		MBTI[2] = 'T';
+	}
+	else {
+		MBTI[2] = 'F';
+	}
+
+	printf("질문13:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_J_P += count();
+	printf("질문14:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_J_P += count();
+	printf("질문15:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_J_P += count();
+	printf("질문16:(1.매우부정, 2.약한부정, 3.약한긍정, 4.강한 긍정");
+	score_J_P += count();
+	if (score_J_P >= 0) {
+		MBTI[3] = 'J';
+	}
+	else {
+		MBTI[3] = 'P';
+	}
+
+	for (int i = 0; i < 4; i++) {
+		printf("%c", MBTI[i]);
+	}
+	return 0;
+}
+
+int count() {
+	int input = 0;
+	int score = 0;
+	fseek(stdin, 0, SEEK_END);
+	scanf_s("%d", &input);
+
+	switch (input)
+	{
+	case 1:
+		score = -3;
+		break;
+	case 2:
+		score = -1;
+		break;
+	case 3:
+		score = 1;
+		break;
+	case 4:
+		score = 3;
+		break;
+	}
+
+	return score;
+}
